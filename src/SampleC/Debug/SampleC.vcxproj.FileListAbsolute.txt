@@ -1,0 +1,2 @@
+C:\Users\Karans\Dropbox\CSD\Kurslar\Arcelik-Eskisehir-C++-Dec-2020\src\SampleC\Debug\SampleC.exe
+C:\Users\Karans\Dropbox\CSD\Kurslar\Arcelik-Eskisehir-C++-Dec-2020\src\SampleC\Debug\SampleC.pdb
