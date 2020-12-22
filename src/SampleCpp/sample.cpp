@@ -1,18 +1,15 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	Aşağıdaki örneği inceleyiniz
+	Yukarıdaki örnek aşağıdaki gibi de yapılabilirdir
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
 
-
-void bar()
-{
-	
-}
-
 int main()
 {
-	std::nullptr_t a;
+	int a{ 10 };
+	const int &pc = a;
+	char* p = const_cast<char *>(reinterpret_cast<const char*>(pc));
 
-	a = 0;	
+	//...
+	
 	return 0;
 }
