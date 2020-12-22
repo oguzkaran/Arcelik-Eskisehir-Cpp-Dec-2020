@@ -2,3 +2,7 @@
 #c++
 #cpluslus
 #cpp
+#c
+#embeddedprogramming
+#oop
+#objectorientedprogramming
