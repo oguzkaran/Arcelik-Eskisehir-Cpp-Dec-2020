@@ -140,10 +140,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Device.cpp" />
     <ClCompile Include="sample.cpp" />
     <ClCompile Include="utility.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Device.hpp" />
     <ClInclude Include="pc.h" />
     <ClInclude Include="utility.h" />
     <ClInclude Include="utility.hpp" />
