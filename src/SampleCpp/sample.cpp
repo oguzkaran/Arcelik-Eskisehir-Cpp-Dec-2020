@@ -1,33 +1,19 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	Sınıfın non-static elemanlarına sınıf ismi ve :: operatörü ile erişilemez
+	Point sınıfı ve kullanımı
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
-
-class Sample {
-public:
-	int a;	
-	static bool b;
-	//...
-	static void foo();
-	void bar();
-};
-
-bool Sample::b;
-
-void Sample::foo()
-{
-	std::cout << "Sample::foo\n";
-}
-
-void Sample::bar()
-{
-	std::cout << "Sample::bar\n";
-}
+#include "Point.hpp"
 
 int main()
 {
-	std::cout << Sample::a << '\n'; //error
-	Sample::bar(); //error
+	Point p;
+
+	p.x = 100;
+	p.y = 200;
+
+	p.display();
+	p.offset(10);
+	p.display();	
 
 	return 0;
 }
