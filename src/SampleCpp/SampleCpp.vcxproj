@@ -141,12 +141,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Device.cpp" />
+    <ClCompile Include="File.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="sample.cpp" />
     <ClCompile Include="utility.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Device.hpp" />
+    <ClInclude Include="File.hpp" />
     <ClInclude Include="pc.h" />
     <ClInclude Include="Point.hpp" />
     <ClInclude Include="utility.h" />
