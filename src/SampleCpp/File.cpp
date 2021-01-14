@@ -1,38 +1,53 @@
-#include <cstdio>
+#include <iostream>
+#include <cstring>
 #include "File.hpp"
 
-File::File() : f{nullptr}
+File::File() : m_f{nullptr}
 {}
 
-File::~File()
+File::File(const char* path, const char* mode) : File{}
 {
-	if (f != nullptr)
-		std::fclose(f);
+	std::strcpy(m_path, path);
+	std::strcpy(m_mode, mode);
 }
+
+File::~File()
+{	
+	if (m_f != nullptr)
+		std::fclose(m_f);
+}
+
+bool File::open()
+{
+	m_f = std::fopen(m_path, m_mode);
+
+	return m_f != nullptr;
+}
+
 
 bool File::open(const char* path, const char* mode)
 {
-	f = std::fopen(path, mode);
+	m_f = std::fopen(path, mode);
 
-	return f != nullptr;
+	return m_f != nullptr;
 }
 
 void File::close()
 {	
-	std::fclose(f);
-	f = nullptr;
+	std::fclose(m_f);
+	m_f = nullptr;
 }
 
 int File::seek(long offset, long whence)
 {
-	return std::fseek(f, offset, whence);
+	return std::fseek(m_f, offset, whence);
 }
 
-void File::type()
+void File::type() const
 {
-	std::fseek(f, 0, SEEK_SET);
+	std::fseek(m_f, 0, SEEK_SET);
 	int ch;
 
-	while ((ch = std::fgetc(f)) != EOF)
+	while ((ch = std::fgetc(m_f)) != EOF)
 		putchar(ch);	
 }

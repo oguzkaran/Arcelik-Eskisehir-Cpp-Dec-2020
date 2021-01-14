@@ -13,17 +13,17 @@ void Point::offset(int dx, int dy)
 	y += dy;
 }
 
-double Point::distance(const Point& r)
+double Point::distance(const Point& r) const
 {
 	return distance(r.x, r.y);
 }
 
-double Point::distance(int a, int b)
+double Point::distance(int a, int b) const
 {
 	return std::sqrt((x - a) * (x - a) + (y - b) * (y - b));
 }
 
-void Point::display()
+void Point::display() const
 {
 	std::cout << "{x : " << x << ", y : " << y << "}\n";
 }

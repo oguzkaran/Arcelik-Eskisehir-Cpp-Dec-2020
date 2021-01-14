@@ -140,6 +140,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="Date.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="File.cpp" />
     <ClCompile Include="Point.cpp" />
@@ -147,6 +149,8 @@
     <ClCompile Include="utility.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Circle.hpp" />
+    <ClInclude Include="Date.hpp" />
     <ClInclude Include="Device.hpp" />
     <ClInclude Include="File.hpp" />
     <ClInclude Include="pc.h" />

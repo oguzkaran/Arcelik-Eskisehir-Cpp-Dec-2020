@@ -4,14 +4,19 @@
 #include <cstdio>
 
 class File {
+	std::FILE* m_f;
+	char m_path[1024];
+	char m_mode[4];
 public:
-	std::FILE* f;
 	File();
+	File(const char *path, const char *mode = "r+");
 	~File();
+	//...
+	bool open();
 	bool open(const char* path, const char* mode);
 	void close();
 	int seek(long offset, long whence);
-	void type();
+	void type() const;
 };
 
 
