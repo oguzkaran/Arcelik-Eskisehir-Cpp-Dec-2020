@@ -1,5 +1,5 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	Sınıfın özel üye fonksiyonları (special member functions)
+	Complex sınıfının operatör fonksiyonları
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
 #include "Complex.hpp"
@@ -7,12 +7,11 @@
 int main()
 {
 	Complex z1{ 3, 4 };
-	Complex z2{ 6, 7 };
-	Complex z;
+	Complex z2{ 3, 5 };
 
-	z = z1 + z2; //z1.operator+(z2);
+	z1 += z2;	
+	
+	std::cout << z1 << '\n';
 
-	std::cout << z.getReal() << " + i" << z.getImag() << '\n';
-		
 	return 0;
 }
