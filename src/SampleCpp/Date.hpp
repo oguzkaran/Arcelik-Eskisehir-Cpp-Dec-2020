@@ -1,11 +1,16 @@
 #ifndef DATE_HPP_
 #define DATE_HPP_
 
+#include <iostream>
+
 class Date {
+	friend std::ostream& operator <<(std::ostream& os, const Date& r);
+	friend std::istream& operator >>(std::istream& is, Date& r);
 private:
 	int m_day, m_month, m_year;
 	int m_dayOfWeek;
 public:
+	Date() {}
 	Date(int day, int month, int year)
 	{
 		//...

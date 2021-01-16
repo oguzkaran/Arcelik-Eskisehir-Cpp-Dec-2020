@@ -1,16 +1,18 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	Circle sınıfı ve test kodu
+	Sınıfın özel üye fonksiyonları (special member functions)
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
-#include "Circle.hpp"
+#include "Complex.hpp"
 
 int main()
 {
-	Circle c1{  };	
+	Complex z1{ 3, 4 };
+	Complex z2{ 6, 7 };
+	Complex z;
 
-	std::cout << "Radius:" << c1.getRadius() << '\n';
-	std::cout << "Alan:" << c1.getArea() << '\n';
-	std::cout << "Circumference:" << c1.getCircumference() << '\n';	
+	z = z1 + z2; //z1.operator+(z2);
 
+	std::cout << z.getReal() << " + i" << z.getImag() << '\n';
+		
 	return 0;
 }
