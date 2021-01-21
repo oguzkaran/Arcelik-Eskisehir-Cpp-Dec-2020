@@ -2,13 +2,32 @@
 #include <cstring>
 #include "File.hpp"
 
-File::File() : m_f{nullptr}
-{}
-
-File::File(const char* path, const char* mode) : File{}
+File::File(const char* path, const char* mode) : m_f{}
 {
 	std::strcpy(m_path, path);
 	std::strcpy(m_mode, mode);
+}
+
+File::File(File&& r)
+{
+	m_f = r.m_f;
+	r.m_f = nullptr;
+	std::strcpy(m_path, r.m_path);
+	std::strcpy(m_mode, r.m_mode);
+}
+
+const File &File::operator =(File&& r)
+{
+	if (&r == this)
+		return *this;
+
+	this->~File();
+	m_f = r.m_f;
+	r.m_f = nullptr;
+	std::strcpy(m_path, r.m_path);
+	std::strcpy(m_mode, r.m_mode);
+
+	return *this;
 }
 
 File::~File()

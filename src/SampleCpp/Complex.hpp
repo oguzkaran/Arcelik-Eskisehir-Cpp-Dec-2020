@@ -5,9 +5,11 @@
 #include <cmath>
 
 class Complex {
+	friend std::istream& operator>>(std::istream& is, Complex& r);
 	friend std::ostream& operator<<(std::ostream& os, const Complex& r);
 	friend Complex operator+(double val, const Complex& z);
 	friend Complex operator-(double val, const Complex& z);
+private:
 	double m_real, m_imag;
 public:
 	explicit Complex(double real = 0, double imag = 0) : m_real{ real }, m_imag{imag} {}
@@ -34,6 +36,11 @@ public:
 	bool operator!=(const Complex& other) const;
 
 	Complex&operator+=(const Complex& other);
+
+	explicit operator double() const;
+
+	void operator()() const;
+	Complex operator()(double val);
 };
 
 #endif // COMPLEX_HPP_ 

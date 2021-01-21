@@ -2,9 +2,12 @@
 
 std::ostream& operator<<(std::ostream& os, const Complex& r)
 {
-	os << r.m_real << " + i" << r.m_imag;
+	return os << r.m_real << " + i" << r.m_imag;
+}
 
-	return os;
+std::istream& operator>>(std::istream& is, Complex& r)
+{
+	return is >> r.m_real >> r.m_imag;
 }
 
 Complex operator+(double val, const Complex& z)
@@ -100,4 +103,19 @@ Complex& Complex::operator+=(const Complex& other)
 	*this = *this + other;
 
 	return *this;
+}
+
+Complex::operator double() const
+{
+	return getNorm();
+}
+
+void Complex::operator()() const
+{
+	std::cout << *this << '\n';
+}
+
+Complex Complex::operator()(double val)
+{
+	return *this + val;
 }

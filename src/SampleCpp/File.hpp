@@ -5,11 +5,15 @@
 
 class File {
 	std::FILE* m_f;
-	char m_path[1024];
-	char m_mode[4];
+	char m_path[1024]{};
+	char m_mode[4]{};
 public:
-	File();
+	File() = default;
 	File(const char *path, const char *mode = "r+");
+	File(const File&) = delete;
+	File& operator=(const File&) = delete;
+	File(File&& r);
+	const File& operator =(File&& r);
 	~File();
 	//...
 	bool open();
