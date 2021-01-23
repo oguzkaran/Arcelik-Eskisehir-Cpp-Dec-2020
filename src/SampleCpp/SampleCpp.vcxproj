@@ -144,9 +144,11 @@
     <ClCompile Include="Complex.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Device.cpp" />
+    <ClCompile Include="DynamicIntArray.cpp" />
     <ClCompile Include="File.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="sample.cpp" />
+    <ClCompile Include="Temperature.cpp" />
     <ClCompile Include="utility.c" />
   </ItemGroup>
   <ItemGroup>
@@ -154,9 +156,11 @@
     <ClInclude Include="Complex.hpp" />
     <ClInclude Include="Date.hpp" />
     <ClInclude Include="Device.hpp" />
+    <ClInclude Include="DynamicIntArray.hpp" />
     <ClInclude Include="File.hpp" />
     <ClInclude Include="pc.h" />
     <ClInclude Include="Point.hpp" />
+    <ClInclude Include="Temperature.hpp" />
     <ClInclude Include="utility.h" />
     <ClInclude Include="utility.hpp" />
   </ItemGroup>
