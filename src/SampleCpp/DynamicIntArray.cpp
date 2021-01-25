@@ -25,7 +25,6 @@ DynamicIntArray& DynamicIntArray::operator =(const DynamicIntArray& r)
 	return *this;
 }
 
-
 DynamicIntArray::DynamicIntArray(DynamicIntArray&& r) 
 	: m_capacity{ r.m_capacity }, m_size{ r.m_size }, m_elems{r.m_elems}
 {

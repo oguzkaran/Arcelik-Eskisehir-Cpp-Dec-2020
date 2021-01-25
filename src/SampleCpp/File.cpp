@@ -2,6 +2,8 @@
 #include <cstring>
 #include "File.hpp"
 
+using namespace csd::util::io;
+
 File::File(const char* path, const char* mode) : m_f{}
 {
 	std::strcpy(m_path, path);
@@ -16,7 +18,7 @@ File::File(File&& r)
 	std::strcpy(m_mode, r.m_mode);
 }
 
-const File &File::operator =(File&& r)
+File &File::operator =(File&& r)
 {
 	if (&r == this)
 		return *this;

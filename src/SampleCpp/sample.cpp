@@ -1,23 +1,45 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	DynamicIntArray sınıfı ve test kodu
-	(Detaylar gözardı edilmiştir)
+	private türetmede sınıfın public ve protected bölümlerindeki elemanlar türemiş sınıfta private bölümde olur
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
-#include "DynamicIntArray.hpp"
+
+class A {
+public:
+	void foo();
+	void bar();
+	int x;	
+	double y;
+};
+
+class B : public A {
+public:
+	void tar();
+	int z;
+};
+
+void A::foo()
+{
+	std::cout << "A::foo\n";
+}
+
+void A::bar()
+{
+	std::cout << "A::bar\n";
+}
+
+void B::tar()
+{
+	std::cout << "B::tar\n";
+}
 
 int main()
-{
-	DynamicIntArray a{ 10 };
+{	
+	using namespace std;
 
-	a[0] = 10;
-	a[1] = 30;
+	B b;
 
-	{
-		DynamicIntArray b{std::move(a)};		
-		
-		std::cout << b[0] << '\n';
-		std::cout << b[1] << '\n';
-	}	
+	b.x = 21;
 
 	return 0;
 }
+

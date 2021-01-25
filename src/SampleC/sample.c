@@ -2,36 +2,22 @@
 #include <stdlib.h>
 #include <math.h>
 
-typedef struct tagDEVICE {
-	char name[100];
-	int id;
-	int status;
-} DEVICE;
-
-
-void open_device(DEVICE* p)
-{
-	p->status = 1;
-}
-
-void make_device_name_upper(const DEVICE* p)
-{
-	//...
-}
-
-
-int insert_device(const DEVICE* p)
-{
-	//...
-
-	return 1;
-}
-
-
+typedef struct tagSAMPLE {
+	int x;
+	double y;
+} SAMPLE;
 
 int main()
-{
-		
+{	
+	printf("sizeof(SAMPLE) = %u\n", (unsigned int)sizeof(SAMPLE));
+
+	SAMPLE s = {10, 3.4};
+
+	void* vs = &s;
+	char* cs = (char*)vs;
+
+	printf("%d\n", *(int *)cs);
+	printf("%lf\n", *(double*)(cs + 4));
 
 	return 0;
 }
