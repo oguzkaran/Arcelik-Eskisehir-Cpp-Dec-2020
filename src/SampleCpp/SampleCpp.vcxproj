@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnalyticalCircle.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Complex.cpp" />
     <ClCompile Include="Date.cpp" />
@@ -152,17 +153,22 @@
     <ClCompile Include="utility.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnalyticalCircle.hpp" />
     <ClInclude Include="Circle.hpp" />
     <ClInclude Include="Complex.hpp" />
     <ClInclude Include="Date.hpp" />
     <ClInclude Include="Device.hpp" />
     <ClInclude Include="DynamicIntArray.hpp" />
+    <ClInclude Include="Employee.hpp" />
     <ClInclude Include="File.hpp" />
+    <ClInclude Include="Manager.hpp" />
     <ClInclude Include="pc.h" />
     <ClInclude Include="Point.hpp" />
+    <ClInclude Include="SalesManager.hpp" />
     <ClInclude Include="Temperature.hpp" />
     <ClInclude Include="utility.h" />
     <ClInclude Include="utility.hpp" />
+    <ClInclude Include="Worker.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

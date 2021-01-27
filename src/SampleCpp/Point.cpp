@@ -2,6 +2,8 @@
 #include <cmath>
 #include "Point.hpp"
 
+using namespace csd::util;
+
 void Point::offset(int dxy)
 {
 	offset(dxy, dxy);

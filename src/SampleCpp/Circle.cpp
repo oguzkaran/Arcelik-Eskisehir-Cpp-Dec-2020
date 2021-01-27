@@ -1,6 +1,8 @@
 #include <cmath>
 #include "Circle.hpp"
 
+using namespace csd::util;
+
 Circle::Circle(double radius, double pi)
 {	
 	setRadius(radius, pi);
