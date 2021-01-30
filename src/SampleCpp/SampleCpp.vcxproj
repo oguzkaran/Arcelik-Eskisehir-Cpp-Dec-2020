@@ -147,10 +147,15 @@
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="DynamicIntArray.cpp" />
     <ClCompile Include="File.cpp" />
+    <ClCompile Include="HumanResources.cpp" />
+    <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="SalesManager.cpp" />
     <ClCompile Include="sample.cpp" />
     <ClCompile Include="Temperature.cpp" />
     <ClCompile Include="utility.c" />
+    <ClCompile Include="Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnalyticalCircle.hpp" />
@@ -161,7 +166,10 @@
     <ClInclude Include="DynamicIntArray.hpp" />
     <ClInclude Include="Employee.hpp" />
     <ClInclude Include="File.hpp" />
+    <ClInclude Include="HumanResources.hpp" />
+    <ClInclude Include="ICharSource.hpp" />
     <ClInclude Include="Manager.hpp" />
+    <ClInclude Include="Parser.h" />
     <ClInclude Include="pc.h" />
     <ClInclude Include="Point.hpp" />
     <ClInclude Include="SalesManager.hpp" />

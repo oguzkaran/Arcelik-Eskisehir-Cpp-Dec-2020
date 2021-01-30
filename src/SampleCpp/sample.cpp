@@ -1,32 +1,31 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	Aşağıdaki örnekte A sınıfının foo fonksiyonu B sınıfında private bölüme çekilmiştir
+	Bir fonksiyon final yapılarak override işlemine kapatılabilir
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
 
+
 class A {
 public:
-	int x;
-	void foo()
-	{
-	}
+	virtual void foo() = 0;
 };
 
 class B : public A {
-private:
-	using A::foo;
+public:
+	void foo() override final
+	{}
+};
+
+
+class C : public B {
+	void foo() override //error
+	{}
 };
 
 int main()
-{	
+{
 	using namespace std;
+
 	
-	B b{};
-	A a{ };
-	
-	b.x = 20;
-	b.foo(); //error
-	a.foo();
-	
+
 	return 0;
 }
-

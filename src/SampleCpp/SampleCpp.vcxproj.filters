@@ -48,6 +48,21 @@
     <ClCompile Include="AnalyticalCircle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HumanResources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Worker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SalesManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utility.h">
@@ -96,6 +111,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SalesManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HumanResources.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ICharSource.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Parser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
