@@ -1,8 +1,4 @@
-﻿  Parser.cpp
-C:\Users\Karans\Dropbox\CSD\Kurslar\Arcelik-Eskisehir-Cpp-Dec-2020\src\SampleCpp\Parser.h(3,4): error C2059: syntax error: ','
-C:\Users\Karans\Dropbox\CSD\Kurslar\Arcelik-Eskisehir-Cpp-Dec-2020\src\SampleCpp\Parser.h(4,1): error C2143: syntax error: missing ';' before '}'
-C:\Users\Karans\Dropbox\CSD\Kurslar\Arcelik-Eskisehir-Cpp-Dec-2020\src\SampleCpp\Parser.h(4,1): error C2238: unexpected token(s) preceding ';'
-  sample.cpp
-C:\Users\Karans\Dropbox\CSD\Kurslar\Arcelik-Eskisehir-Cpp-Dec-2020\src\SampleCpp\sample.cpp(20,7): error C3248: 'B::foo': function declared as 'final' cannot be overridden by 'C::foo'
-C:\Users\Karans\Dropbox\CSD\Kurslar\Arcelik-Eskisehir-Cpp-Dec-2020\src\SampleCpp\sample.cpp(14): message : see declaration of 'B::foo'
+﻿  sample.cpp
+  StringSource.cpp
   Generating Code...
+  SampleCpp.vcxproj -> C:\Users\Karans\Dropbox\CSD\Kurslar\Arcelik-Eskisehir-Cpp-Dec-2020\src\SampleCpp\Debug\SampleCpp.exe

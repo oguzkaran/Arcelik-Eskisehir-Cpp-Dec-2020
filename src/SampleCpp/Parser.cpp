@@ -1,6 +1,6 @@
 #include <cctype>
 #include <iostream>
-#include "Parser.h"
+#include "Parser.hpp"
 
 void Parser::setSource(ICharSource* pSource)
 {

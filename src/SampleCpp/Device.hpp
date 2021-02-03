@@ -1,9 +1,11 @@
 #ifndef DEVICE_HPP_
 #define DEVICE_HPP_
 
+#include <string>
+
 class Device {
 public:
-	char name[100];
+	std::string m_name;
 	int id;
 	bool isOpen;
 public:

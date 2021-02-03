@@ -1,21 +1,17 @@
-#include <iostream>
-#include <cstring>
 #include "File.hpp"
 
 using namespace csd::util::io;
 
-File::File(const char* path, const char* mode) : m_f{}
-{
-	std::strcpy(m_path, path);
-	std::strcpy(m_mode, mode);
+File::File(const char* path, const char* mode) : m_f{}, m_path { path }, m_mode{ mode }
+{	
 }
 
 File::File(File&& r)
 {
 	m_f = r.m_f;
 	r.m_f = nullptr;
-	std::strcpy(m_path, r.m_path);
-	std::strcpy(m_mode, r.m_mode);
+	m_path = std::move(r.m_path);
+	m_mode = std::move(r.m_mode);	
 }
 
 File &File::operator =(File&& r)
@@ -26,8 +22,8 @@ File &File::operator =(File&& r)
 	this->~File();
 	m_f = r.m_f;
 	r.m_f = nullptr;
-	std::strcpy(m_path, r.m_path);
-	std::strcpy(m_mode, r.m_mode);
+	m_path = std::move(r.m_path);
+	m_mode = std::move(r.m_mode);
 
 	return *this;
 }
@@ -40,7 +36,7 @@ File::~File()
 
 bool File::open()
 {
-	m_f = std::fopen(m_path, m_mode);
+	m_f = std::fopen(m_path.c_str(), m_mode.c_str());
 
 	return m_f != nullptr;
 }
@@ -71,4 +67,9 @@ void File::type() const
 
 	while ((ch = std::fgetc(m_f)) != EOF)
 		putchar(ch);	
+}
+
+int File::getc()
+{
+	return std::fgetc(m_f);
 }

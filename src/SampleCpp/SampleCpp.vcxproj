@@ -141,24 +141,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnalyticalCircle.cpp" />
+    <ClCompile Include="CharArraySource.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Complex.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="DynamicIntArray.cpp" />
     <ClCompile Include="File.cpp" />
+    <ClCompile Include="FileSource.cpp" />
     <ClCompile Include="HumanResources.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="SalesManager.cpp" />
     <ClCompile Include="sample.cpp" />
+    <ClCompile Include="StringSource.cpp" />
     <ClCompile Include="Temperature.cpp" />
     <ClCompile Include="utility.c" />
     <ClCompile Include="Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnalyticalCircle.hpp" />
+    <ClInclude Include="CharArraySource.hpp" />
     <ClInclude Include="Circle.hpp" />
     <ClInclude Include="Complex.hpp" />
     <ClInclude Include="Date.hpp" />
@@ -166,13 +170,15 @@
     <ClInclude Include="DynamicIntArray.hpp" />
     <ClInclude Include="Employee.hpp" />
     <ClInclude Include="File.hpp" />
+    <ClInclude Include="FileSource.hpp" />
     <ClInclude Include="HumanResources.hpp" />
     <ClInclude Include="ICharSource.hpp" />
     <ClInclude Include="Manager.hpp" />
-    <ClInclude Include="Parser.h" />
+    <ClInclude Include="Parser.hpp" />
     <ClInclude Include="pc.h" />
     <ClInclude Include="Point.hpp" />
     <ClInclude Include="SalesManager.hpp" />
+    <ClInclude Include="StringSource.hpp" />
     <ClInclude Include="Temperature.hpp" />
     <ClInclude Include="utility.h" />
     <ClInclude Include="utility.hpp" />

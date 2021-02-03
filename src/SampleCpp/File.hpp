@@ -1,13 +1,14 @@
 #ifndef FILE_HPP_
 #define FILE_HPP_
 
+#include <string>
 #include <cstdio>
 
 namespace csd::util::io { //Since C++ 17
 	class File {
 		std::FILE* m_f;
-		char m_path[1024]{};
-		char m_mode[4]{};
+		std::string m_path;
+		std::string m_mode;		
 	public:
 		File() = default;
 		File(const char* path, const char* mode = "r+");
@@ -22,8 +23,8 @@ namespace csd::util::io { //Since C++ 17
 		void close();
 		int seek(long offset, long whence);
 		void type() const;
-	};
-	
+		int getc();
+	};	
 }
 
 
