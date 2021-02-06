@@ -1,6 +1,8 @@
-#ifndef UTIL_HPP_
-#define UTIL_HPP_
+#ifndef UTILITY_HPP_
+#define UTILITY_HPP_
+#include <string>
+#include <cstddef>
 
-extern const double PI = 3.14;
+std::string generateRandomString(std::size_t n);
 
-#endif //UTIL_HPP_
+#endif //UTILITY_HPP_

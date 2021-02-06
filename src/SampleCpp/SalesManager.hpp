@@ -9,6 +9,6 @@ public:
 		: Manager{ citizenId, name, address, salary, department }, m_extra{extra}
 	{}
 
-	int getExtra() const { return m_extra; }	
+	double getExtra() const { return m_extra; }	
 	double calculateInsurance() const override;
 };

@@ -1,11 +1,13 @@
 #ifndef UTILITY_H_
 #define UTILITY_H_
 
+extern const double PI = 3.14159265359;
+
 #ifdef __cplusplus
 extern "C" {
-#endif
+#endif	
 	void randomize();
-	int get_random_int(int min, int max);
+	int generateRandomInt(int min, int max);
 #ifdef __cplusplus
 }
 #endif

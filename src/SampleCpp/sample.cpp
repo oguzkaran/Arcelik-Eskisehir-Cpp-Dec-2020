@@ -1,27 +1,42 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	Parser uygulaması ve test kodu. Çalışma zamanı çokbiçimliliği kullanılmıştır
+	noexcept bir fonksiyon içerisinde bir exception fırlatılması derleyici tarafından bir mesajla bildirilmek 
+	zorunda değildir. Şüphesiz bu iyi bir yaklaşım değildir. Ayrıca noexcept bir fonksiyon exception fırlatsa
+	bile bu exception hiçbir şekilde yakalanamaz ve terminate fonksiyonu çağrılır. C++ 'da exception fırlatmayacak
+	bir fonksiyonun noexcept olarak bildirilmesi gerekir
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
+#include <stdexcept>
 
-#include "Parser.hpp"
-#include "CharArraySource.hpp"
-#include "FileSource.hpp"
-#include "StringSource.hpp"
+void foo(int val) noexcept
+{
+	if (val < 0)
+		throw std::invalid_argument{ "foo:invalid_argument" };
+
+	std::cout << "foo:" << val << '\n';
+}
+
+void bar(int val)
+{
+	if (val < 0)
+		throw std::invalid_argument{ "bar:invalid_argument" };
+
+	std::cout << "bar:" << val << '\n';
+
+}
 
 int main()
 {
 	using namespace std;
 
-	FileSource fs{ "text.txt" };
-	CharArraySource cs{ "Bugun hava cok \t\r\nguzel" };
-	StringSource ss{ "Bugun hava cok cok guzel" };
-	Parser p{ &cs };
-
-	p.doParse();
-	p.setSource(&fs);
-	p.doParse();
-	p.setSource(&ss);
-	p.doParse();
+	try {
+		foo(-10);
+	}
+	catch (const invalid_argument& ex) {
+		cout << ex.what() << '\n';
+	}
+	catch (...) {
+		cout << "catch all\n";
+	}
 
 	return 0;
 }
