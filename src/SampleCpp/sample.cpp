@@ -1,43 +1,21 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	noexcept bir fonksiyon içerisinde bir exception fırlatılması derleyici tarafından bir mesajla bildirilmek 
-	zorunda değildir. Şüphesiz bu iyi bir yaklaşım değildir. Ayrıca noexcept bir fonksiyon exception fırlatsa
-	bile bu exception hiçbir şekilde yakalanamaz ve terminate fonksiyonu çağrılır. C++ 'da exception fırlatmayacak
-	bir fonksiyonun noexcept olarak bildirilmesi gerekir
+	C++ 14 ile birlikte yukarıdaki örnek için geri dönüş değeri yazılmayabilir
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
-#include <stdexcept>
-
-void foo(int val) noexcept
-{
-	if (val < 0)
-		throw std::invalid_argument{ "foo:invalid_argument" };
-
-	std::cout << "foo:" << val << '\n';
-}
-
-void bar(int val)
-{
-	if (val < 0)
-		throw std::invalid_argument{ "bar:invalid_argument" };
-
-	std::cout << "bar:" << val << '\n';
-
-}
+#include <algorithm>
+#include <iterator>
 
 int main()
 {
 	using namespace std;
 
-	try {
-		foo(-10);
-	}
-	catch (const invalid_argument& ex) {
-		cout << ex.what() << '\n';
-	}
-	catch (...) {
-		cout << "catch all\n";
-	}
+	int a[]{ 3, -9, 7, 8, 34, -90 };
 
+	sort(a, a + 6, [](int a, int b) {return a < b;});
+	copy(a, a + 6, ostream_iterator<int>(cout, " "));
+
+	cout << '\n';
+	
 	return 0;
 }
 

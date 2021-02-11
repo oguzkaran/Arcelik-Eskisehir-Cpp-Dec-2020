@@ -1,26 +1,2 @@
-﻿  AnalyticalCircle.cpp
-  CharArraySource.cpp
-  Circle.cpp
-  Complex.cpp
-  Date.cpp
-  Device.cpp
-  DynamicIntArray.cpp
-  File.cpp
-  FileSource.cpp
-  HumanResources.cpp
-  Manager.cpp
-  Parser.cpp
-  Point.cpp
-  SalesManager.cpp
-C:\Users\Karans\Dropbox\CSD\Kurslar\Arcelik-Eskisehir-Cpp-Dec-2020\src\SampleCpp\SalesManager.hpp(12,32): warning C4244: 'return': conversion from 'const double' to 'int', possible loss of data
-  sample.cpp
-C:\Users\Karans\Dropbox\CSD\Kurslar\Arcelik-Eskisehir-Cpp-Dec-2020\src\SampleCpp\sample.cpp(10,1): warning C4297: 'foo': function assumed not to throw an exception but does
-C:\Users\Karans\Dropbox\CSD\Kurslar\Arcelik-Eskisehir-Cpp-Dec-2020\src\SampleCpp\sample.cpp(10,1): message : __declspec(nothrow), throw(), noexcept(true), or noexcept was specified on the function
-  StringSource.cpp
-  Temperature.cpp
-  utility.cpp
-  Worker.cpp
-  Generating Code...
-  utility.c
-Debug\utility.obj : warning LNK4042: object specified more than once; extras ignored
+﻿  sample.cpp
   SampleCpp.vcxproj -> C:\Users\Karans\Dropbox\CSD\Kurslar\Arcelik-Eskisehir-Cpp-Dec-2020\src\SampleCpp\Debug\SampleCpp.exe

@@ -157,7 +157,7 @@
     <ClCompile Include="sample.cpp" />
     <ClCompile Include="StringSource.cpp" />
     <ClCompile Include="Temperature.cpp" />
-    <ClCompile Include="utility.c" />
+    <ClCompile Include="util.c" />
     <ClCompile Include="utility.cpp" />
     <ClCompile Include="Worker.cpp" />
   </ItemGroup>
