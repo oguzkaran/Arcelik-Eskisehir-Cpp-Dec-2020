@@ -1,63 +1,44 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	Aşağıdaki örnekte * ve -> operatör fonksiyonları tanımlanmış bir gösterici sınıfı yazılmıştır
+	Algoritmalardan bazıları aşağıdaki gibi callback fonksiyon alırlar
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
-#include "Unit.hpp"
+#include <algorithm>
 
-template <typename T>
-class MyPointer {
-private:
-	T* m_p;
+bool is_even(int val)
+{
+	return val % 2 == 0;
+}
+
+class IsOddFunctor {
+	//...
 public:
-	explicit MyPointer(T* p) : m_p{ p }
-	{}
-public:
-	constexpr T& operator *()
+	bool operator ()(int a)
 	{
-		return *m_p;
-	}
-
-	constexpr T& operator *() const
-	{
-		return *m_p;
-	}
-
-	constexpr T* operator ->()
-	{
-		return m_p;
-	}
-
-	constexpr T* operator ->() const
-	{
-		return m_p;
+		return a % 2 != 0;
 	}
 };
 
 int main()
 {
 	using namespace std;
-	int a = 10;
-	MyPointer<int> mp{ &a };
+
+	int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	int b[10];	
+	int c[10];
+
+	auto last = copy_if(a, a + 10, b, [](int val) {return val % 2 == 0;});
+
+	for (auto iter = b; iter != last; ++iter)
+		cout << *iter << ' ';
+
+	cout << '\n';
+
+	last = copy_if(a, a + 10, c, [](int val) {return val % 2 != 0;});
+
+	for (auto iter = c; iter != last; ++iter)
+		cout << *iter << ' ';
+
+	cout << '\n';
 	
-	*mp *= 3;
-
-	cout << a << '\n';
-	cout << *mp << '\n';
-
-	cout << "/////////////////////////\n";
-
-	Unit<int> iunit{ 67 };
-	MyPointer<Unit<int>> ump{ &iunit };
-
-	ump->set(ump->get() * 2);
-
-	cout << iunit.get() << '\n';
-	cout << ump->get() << '\n';
-
-	(*ump).set(34);
-
-	cout << iunit.get() << '\n';
-	cout << ump->get() << '\n';
-
 	return 0;
 }

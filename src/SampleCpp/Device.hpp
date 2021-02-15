@@ -2,15 +2,17 @@
 #define DEVICE_HPP_
 
 #include <string>
+#include <vector>
 
 class Device {
-public:
+private:
 	std::string m_name;
-	int id;
-	bool isOpen;
+	int m_id;
+	std::vector<int> m_port;
 public:
-	void open_device();
-	bool insert_device();
+	std::string getName() const { return m_name; }
+	int getId() const { return m_id; }
+	
 	//...
 };
 
