@@ -1,44 +1,27 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	Algoritmalardan bazıları aşağıdaki gibi callback fonksiyon alırlar
+	Aşağıdaki örnekte Lambda ifadesinde r ve x değişkenleri bildirilmiştir. x = x + 5 ildeğer verme ifadesinde soldaki
+	x yeni tanımlanmış bir değişkendir. Lamda içerisinde değer semantiği ile kullanılabilir
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
-#include <algorithm>
-
-bool is_even(int val)
-{
-	return val % 2 == 0;
-}
-
-class IsOddFunctor {
-	//...
-public:
-	bool operator ()(int a)
-	{
-		return a % 2 != 0;
-	}
-};
+#include <vector>
+#include <list>
+#include <numeric>
+#include <iterator>
 
 int main()
 {
 	using namespace std;
-
-	int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-	int b[10];	
-	int c[10];
-
-	auto last = copy_if(a, a + 10, b, [](int val) {return val % 2 == 0;});
-
-	for (auto iter = b; iter != last; ++iter)
-		cout << *iter << ' ';
-
-	cout << '\n';
-
-	last = copy_if(a, a + 10, c, [](int val) {return val % 2 != 0;});
-
-	for (auto iter = c; iter != last; ++iter)
-		cout << *iter << ' ';
-
-	cout << '\n';
 	
+	int x = 10;	
+
+	auto y = [&r = x, x = x + 5]() -> int {
+		r += 3;		
+		return x + 3;
+	}();	
+
+	cout << "x = " << x << '\n';
+	cout << "y = " << y << '\n';
+
 	return 0;
 }
+
