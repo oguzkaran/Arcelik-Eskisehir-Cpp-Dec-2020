@@ -1,26 +1,18 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	Aşağıdaki örnekte Lambda ifadesinde r ve x değişkenleri bildirilmiştir. x = x + 5 ildeğer verme ifadesinde soldaki
-	x yeni tanımlanmış bir değişkendir. Lamda içerisinde değer semantiği ile kullanılabilir
+	push_back fonksiyonları dopğrudan açıımda kullanılan türe ilişkin nesneyi alırlar
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
 #include <vector>
-#include <list>
-#include <numeric>
-#include <iterator>
+#include "Complex.hpp"
 
 int main()
 {
 	using namespace std;
-	
-	int x = 10;	
 
-	auto y = [&r = x, x = x + 5]() -> int {
-		r += 3;		
-		return x + 3;
-	}();	
+	vector<Complex> cvec;
 
-	cout << "x = " << x << '\n';
-	cout << "y = " << y << '\n';
+	cvec.emplace_back(3, 4);
+	cvec.emplace_back(5, 8);
 
 	return 0;
 }
