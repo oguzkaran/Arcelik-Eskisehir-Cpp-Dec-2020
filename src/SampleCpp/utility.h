@@ -3,10 +3,11 @@
 
 extern const double PI = 3.14159265359;
 
+#define randomize() (srand((unsigned int)time(NULL)));
+
 #ifdef __cplusplus
 extern "C" {
-#endif	
-	void randomize();
+#endif		
 	int generateRandomInt(int min, int max);
 #ifdef __cplusplus
 }

@@ -1,30 +1,21 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	priority_queue sınıfı
+	partial_sort algoritması
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
-#include <numeric>
-#include <queue>
-#include <deque>
-#include <list>
-#include <functional>
-#include "Temperature.hpp"
+#include <vector>
+#include <iterator>
+#include <algorithm>
 
 int main()
 {
 	using namespace std;
-	using Temp = com::arcelik::Temperature;
 
-	vector<Temp> tv(11);
+	vector<int> ivec{ 3, -4, 5, 8, 2, -9, 10 };
 
-	iota(begin(tv), end(tv), Temp{ -5 });
-	priority_queue<Temp> pq(less<Temp>(), tv);
+	partial_sort(ivec.begin(), ivec.begin() + 3, ivec.end());
 
-	while (!pq.empty()) {
-		cout << pq.top() << ' ';
-		pq.pop();
-	}
-
+	copy(ivec.begin(), ivec.end(), ostream_iterator<int>(cout, " "));
 	cout << '\n';
-
+	
 	return 0;
 }
