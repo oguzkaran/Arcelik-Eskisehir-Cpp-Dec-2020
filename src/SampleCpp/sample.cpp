@@ -1,21 +1,22 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	partial_sort algoritması
+	Aşağıdaki sink fonksiyonu ile herhangi bir unique_ptr nesnesi taşıma semantiği ile kullanılarak içerisindeki
+	dinamik nesnenin delete edilmesi sağlanabilir
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
-#include <vector>
-#include <iterator>
-#include <algorithm>
+#include "Complex.hpp"
+
+template <typename T>
+void sink(std::unique_ptr<T>)
+{
+}
 
 int main()
 {
-	using namespace std;
-
-	vector<int> ivec{ 3, -4, 5, 8, 2, -9, 10 };
-
-	partial_sort(ivec.begin(), ivec.begin() + 3, ivec.end());
-
-	copy(ivec.begin(), ivec.end(), ostream_iterator<int>(cout, " "));
-	cout << '\n';
+	using namespace std;	
 	
+	auto cup{ make_unique<Complex>(3, 4) };
+
+	cup.reset();
+
 	return 0;
 }
