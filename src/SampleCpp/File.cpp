@@ -2,74 +2,54 @@
 
 using namespace csd::util::io;
 
-File::File(const char* path, const char* mode) : m_f{}, m_path { path }, m_mode{ mode }
-{	
-}
+static auto fileDeleter = [](std::FILE* f) {if (f != nullptr) std::fclose(f);};
 
-File::File(File&& r)
-{
-	m_f = r.m_f;
-	r.m_f = nullptr;
-	m_path = std::move(r.m_path);
-	m_mode = std::move(r.m_mode);	
-}
+File::File(const char* path, const char* mode) : m_uptr{nullptr, nullptr}, m_path { path }, m_mode{ mode }
+{}
 
-File &File::operator =(File&& r)
-{
-	if (&r == this)
-		return *this;
-
-	this->~File();
-	m_f = r.m_f;
-	r.m_f = nullptr;
-	m_path = std::move(r.m_path);
-	m_mode = std::move(r.m_mode);
-
-	return *this;
-}
-
-File::~File()
-{	
-	if (m_f != nullptr)
-		std::fclose(m_f);
-}
 
 bool File::open()
 {
-	m_f = std::fopen(m_path.c_str(), m_mode.c_str());
+	m_uptr = std::unique_ptr<FILE, decltype(fileDeleter)>{ std::fopen(m_path.c_str(), m_mode.c_str()) };
 
-	return m_f != nullptr;
+	return m_uptr != nullptr;
 }
 
 
 bool File::open(const char* path, const char* mode)
 {
-	m_f = std::fopen(path, mode);
+	m_uptr = std::unique_ptr<FILE, decltype(fileDeleter)>{ std::fopen(path, mode) };
 
-	return m_f != nullptr;
+	return m_uptr != nullptr;
 }
 
 void File::close()
-{	
-	std::fclose(m_f);
-	m_f = nullptr;
+{		
+	m_uptr = nullptr;
 }
 
 int File::seek(long offset, long whence)
 {
-	return std::fseek(m_f, offset, whence);
+	return std::fseek(m_uptr.get(), offset, whence);
 }
 
 void File::type() const
 {
-	std::fseek(m_f, 0, SEEK_SET);
+	std::fseek(m_uptr.get(), 0, SEEK_SET);
 	int ch;
 
-	while ((ch = std::fgetc(m_f)) != EOF)
+	while ((ch = std::fgetc(m_uptr.get())) != EOF)
 		putchar(ch);	
 }
 
+
+void File::putc(int ch)
+{
+	std::fputc(ch, m_uptr.get());
+}
+
+
 int File::getc()
 {
-	return std::fgetc(m_f);
+	return std::fgetc(m_uptr.get());
 }

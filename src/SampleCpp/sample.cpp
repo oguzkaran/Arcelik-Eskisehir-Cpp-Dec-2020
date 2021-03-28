@@ -1,22 +1,44 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	Aşağıdaki sink fonksiyonu ile herhangi bir unique_ptr nesnesi taşıma semantiği ile kullanılarak içerisindeki
-	dinamik nesnenin delete edilmesi sağlanabilir
+	set container sınıfı
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
-#include "Complex.hpp"
+#include <memory>
+#include <set>
+#include <vector>
+#include <algorithm>
+#include <iterator>
 
-template <typename T>
-void sink(std::unique_ptr<T>)
+std::vector<int> generateNumbers()
 {
+	using namespace std;
+
+	set<int> nset;
+
+	while (nset.size() != 6)
+		nset.insert(rand() % 49 + 1);
+
+	vector<int> nvec;
+	copy(nset.begin(), nset.end(), back_inserter(nvec));
+	stable_sort(nvec.begin(), nvec.end());
+
+	return nvec;
 }
 
 int main()
 {
 	using namespace std;	
+	srand(static_cast<unsigned int>(time(nullptr)));
+	size_t n;
+
+	cout << "Kac kupon oynamak istersiniz?";
+	cin >> n;
+
+	for (size_t i{}; i < n; ++i) {
+		auto numbers = generateNumbers();
+		copy(numbers.begin(), numbers.end(), ostream_iterator<int>(cout, " "));
+		cout << '\n';
+	}
 	
-	auto cup{ make_unique<Complex>(3, 4) };
-
-	cup.reset();
-
 	return 0;
 }
+
