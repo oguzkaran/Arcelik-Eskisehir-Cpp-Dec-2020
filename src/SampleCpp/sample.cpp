@@ -1,44 +1,44 @@
 ﻿/*----------------------------------------------------------------------------------------------------------------------
-	set container sınıfı
+    thread sınıfının detach fonksiyonu
 ----------------------------------------------------------------------------------------------------------------------*/
 #include <iostream>
-#include <memory>
-#include <set>
-#include <vector>
-#include <algorithm>
-#include <iterator>
+#include <thread>
+#include <cstdlib>
+#include <ctime>
+#include <thread>
+#include <mutex>
+#include <semaphore>
 
-std::vector<int> generateNumbers()
+constexpr int queue_size{ 10 };
+
+std::size_t g_queue[queue_size];
+std::size_t g_head, g_tail;
+
+inline void randomize()
 {
-	using namespace std;
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+}
 
-	set<int> nset;
+void thread_proc(std::size_t n)
+{
+    randomize();
 
-	while (nset.size() != 6)
-		nset.insert(rand() % 49 + 1);
-
-	vector<int> nvec;
-	copy(nset.begin(), nset.end(), back_inserter(nvec));
-	stable_sort(nvec.begin(), nvec.end());
-
-	return nvec;
+    for (std::size_t i{ 0 }; i < n; ++i) {
+        std::cout << std::rand() % 100 << ' ';
+        std::cout.flush();
+        std::this_thread::sleep_for(std::chrono::seconds(1));        
+    }
 }
 
 int main()
 {
-	using namespace std;	
-	srand(static_cast<unsigned int>(time(nullptr)));
-	size_t n;
+    using namespace std;
 
-	cout << "Kac kupon oynamak istersiniz?";
-	cin >> n;
+    thread t{ thread_proc, 5 };
 
-	for (size_t i{}; i < n; ++i) {
-		auto numbers = generateNumbers();
-		copy(numbers.begin(), numbers.end(), ostream_iterator<int>(cout, " "));
-		cout << '\n';
-	}
-	
-	return 0;
+    t.detach();
+
+    t.join();
+
+    return 0;
 }
-
